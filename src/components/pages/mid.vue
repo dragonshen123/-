@@ -1,7 +1,7 @@
 <template>
     <div id="mid" class="container">
       <div class="row">
-        <div id="myCarousel" class="carousel slide" style="height: 480px;overflow: hidden">
+        <div id="myCarousel" class="carousel slide" style="height: 450px;overflow: hidden">
           <!-- 轮播（Carousel）指标 -->
           <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -39,7 +39,7 @@
           </a>
         </div>
       </div>
-      <div class="row"  style="background-color:#169f14;height: 50px;">
+      <div class="row col-md-12"  style="background-color:#169f14;height: 50px;">
         <h3 class="col col-md-2" v-on:click="makeActive()" >政策补贴</h3>
         <ul class="pull-right">
           <li ><a href="#">农机购置补贴政策 </a>|</li>
@@ -61,7 +61,7 @@
               <router-link :to="{path:'/Detail',query: {informationId: site.informationId,informationType:site.informationType}}">
                <span class="pull-left"> {{site.informationTtile}}</span><span class="pull-right " style="color: black">{{site.informationDate}}</span></router-link>
             </li>
-            <li><a href="">更多>></a></li>
+            <li><a href=""  class="pull-left">更多>></a></li>
           </ul>
           </div>
 
@@ -109,8 +109,7 @@
         </div>
         </div>
       </div>
-      <div class="row" style="margin-top:20px;"><img src="../../../static/images/nav.jpg" alt="" class="img-responsive" style="border: 1px ridge #449d44"></div>
-      <div class="row col-md-12" style="border: 1px ridge silver;margin-left: 0">
+        <div class="row col-md-12" style="border: 1px ridge silver;margin-left: 0">
         <div class="col col-md-2" style="padding-left: 0">
           <img src="../../../static/images/nonghe.jpg" alt="" class="img-responsive">
           <img src="../../../static/images/nonghe.jpg" alt="" class="img-responsive">
@@ -125,7 +124,7 @@
           </ul>
         </div>
         <div class="col col-md-5" style="padding-right: 0">
-          <span class="btn btn-success btn-lg" style="border: none;border-radius: 0;background-color: #449d44;width: 100%;text-align: left">农合学院</span>
+          <span class="btn btn-success btn-lg" style="border: none;border-radius: 0;background-color: #449d44;width: 100%;text-align: left;margin-right: -30px">农合学院</span>
           <ul id="xueyuan">
             <li  v-for="item in collage"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;<a href="">
               {{item.informationTtile}} </a>
@@ -135,32 +134,30 @@
           </ul>
         </div>
       </div>
-        <div class="row" style="margin-top: 20px;height: 100px" id="img">
-          <div class="col col-md-3" >
-            <img src="../../../static/images/nongc.jpg" class="img-responsive" alt="">
-          </div>
-          <div class="col col-md-3">
-            <img src="../../../static/images/nongji.png" class="img-responsive" alt="">
-          </div>
-          <div class="col col-md-3">
-            <img src="../../../static/images/t1.jpg" class="img-responsive" alt="">
-          </div>
-          <div class="col col-md-3">
-            <img src="../../../static/images/640.jpg" class="img-responsive" alt="">
-          </div>
-          <!--<Show></Show>-->
+      <div class="row col-md-12" style="padding-left: 0;padding-right: 0;margin-top: 5px"><img src="../../../static/images/nav.jpg" alt="" class="img-responsive" style="border: 3px ridge #449d44"></div>
+      <div class="row col-md-12" id="box" style="padding-left: 0;padding-right: 0;">
+        <ul style="padding-left: 0;padding-right: 0" id="ul">
+          <li><img src="../../../static/images/nongc.jpg" class="img-responsive" alt=""></li>
+          <li><img src="../../../static/images/nongji.png" class="img-responsive" alt=""></li>
+          <li><img src="../../../static/images/t1.jpg" class="img-responsive" alt=""></li>
+          <li><img src="../../../static/images/640.jpg" class="img-responsive" alt=""></li>
+          <li><img src="../../../static/images/nongc.jpg" class="img-responsive" alt=""></li>
+          <li><img src="../../../static/images/nongji.png" class="img-responsive" alt=""></li>
+          <li><img src="../../../static/images/nongc.jpg" class="img-responsive" alt=""></li>
+          <li><img src="../../../static/images/nongji.png" class="img-responsive" alt=""></li>
+        </ul>
         </div>
-        <div class="row" style="margin-top: 20px">
-          <div class="col col-md-5" style="padding-left: 0">
+        <div class="row col-md-12" style="margin-top: 20px;padding-left: 0;padding-right: 0">
+          <div class="col col-md-6" style="padding-left: 0;padding-right:20px;border: 1px ridge silver;min-height: 450px">
             <h3 style="background-color: #449d44;color: white;padding: 10px 10px"><hr class="hr pull-left" style="width: 15%;border-top:3px solid #eee;margin-left: 2%;margin-right: 2%;margin-top: 10px"><span style="float: left">社会化服务</span><hr class="hr pull-left" style="width: 25%;border-top:3px solid #eee;margin-left: 2%;margin-right: 2%;margin-top: 10px">更多&nbsp;></h3>
-            <div  class="col col-md-5" id="shehuihua">
-              <p  v-for="item in service"><a href="#">{{item.informationTtile}}</a></p>
-              <p><a href="#">更多>> </a></p>
+            <div  class="col col-md-6" id="shehuihua">
+              <p  v-for="(item,index) in service" class="list-group-item" v-if="index<7"><a href="#">{{item.informationTtile}}</a></p>
+              <p class="list-group-item"><a href="#">更多>> </a></p>
 
             </div>
-            <div class="col col-md-7" style="padding-left: 0;padding-right: 0;">
-             <h4 style="color: #f8f8f8;background-color: #72e0e0;padding-top: 5px;padding-bottom: 5px">中农新型农业社会化服务社服务体系</h4>
-              <img src="../../../static/images/shehui.jpg" class="img-responsive" id="tixi" alt="" style="z-index: 0">
+            <div class="col col-md-6" style="padding-left: 0;padding-right: 0;">
+             <h5 style="color: #f8f8f8;background-color: #72e0e0;padding-top: 5px;padding-bottom: 5px">中农新型农业社会化服务社服务体系</h5>
+              <img src="../../../static/images/shehui.jpg" class="img-responsive" id="tixi" alt="" style="z-index: 0;padding-right: 0">
               <ul  style="z-index: 100" hidden="hidden" id="tixishow">
                 <li>农资直供: 为社员提供肥料、种子、农药、农机、农膜等农用物资的直接供应，减少中间环节，节本增效。
 
@@ -178,16 +175,16 @@
               </ul>
             </div>
           </div>
-          <div class="col col-md-7" style="padding-right: 0">
+          <div class="col col-md-6" style="padding-right: 0;border: 1px ridge silver;min-height: 450px">
             <h3 style="background-color: #449d44;color: white;padding: 10px 10px"><hr class="hr pull-left" style="width: 20%;border-top:3px solid #eee;margin-left: 2%;margin-right: 2%;margin-top: 10px"><span style="float: left">农业快讯</span><hr class="hr pull-left" style="width: 40%;border-top:3px solid #eee;margin-left: 2%;margin-right: 2%;margin-top: 10px">更多&nbsp;></h3>
             <div class="col col-md-6" id="shehuihua">
-              <p  v-for="item in news"><a href="#">{{item.informationTtile}}</a></p>
+              <p  v-for="item in news" class="list-group-item"><a href="#">{{item.informationTtile}}</a></p>
 
-              <p><a href="#">更多>> </a></p>
+              <p class="list-group-item"><a href="#">更多>> </a></p>
 
             </div>
             <div class="col col-md-6" style="padding-left: 0;padding-right: 0;">
-              <h4 style="color: #f8f8f8;background-color: #72e0e0;padding-top: 5px;padding-bottom: 5px">中农新型农业社会化服务社服务体系</h4>
+              <h5 style="color: #f8f8f8;background-color: #72e0e0;padding-top: 5px;padding-bottom: 5px">中农新型农业社会化服务社服务体系</h5>
               <img id="kuaixun" src="../../../static/images/shehui.jpg" class="img-responsive" alt="">
               <ul style="z-index: 100" hidden="hidden" id="kuaixunshow">
                 <li>农资直供: 为社员提供肥料、种子、农药、农机、农膜等农用物资的直接供应，减少中间环节，节本增效。
@@ -207,9 +204,10 @@
             </div>
           </div>
         </div>
-        <div class="row" style="margin: 0 0;padding: 0 0;height: 10px;background-color: #449d44"></div>
-        <div class="row">
-          <div class="col col-md-3">
+        <div class="row col-md-12" style="margin: 0 0;padding: 0 0;height: 10px;background-color: #449d44;margin-top: 15px"></div>
+        <div class="row col-md-12">
+          <div class="col col-md-3" >
+            <ul></ul>
             <img src="../../../static/images/nongc.jpg" class="img-responsive" alt="" style="z-index: 0">
             <img id="play" src="../../../static/images/play.png" class="img-responsive" alt="" style="z-index: 1;position: absolute; top: 50%; left: 50%; margin-left: -50px; margin-top: -50px; ">
           </div>
@@ -226,7 +224,7 @@
             <img id="play3" src="../../../static/images/play.png" class="img-responsive" alt="" style="z-index: 1;position: absolute; top: 50%; left: 50%; margin-left: -50px; margin-top: -50px; ">
           </div>
         </div>
-      <div class="row" style="margin: 0 0;padding: 0 0;height: 10px;background-color: #449d44"></div>
+      <div class="row col-md-12" style="margin: 0 0;padding: 0 0;height: 10px;background-color: #449d44"></div>
     </div>
 </template>
 
@@ -281,10 +279,74 @@
        }
       }
     };
+ $(document).ready(function(){
+    var oDiv = document.getElementById('box');
+    var oUl = document.getElementById('ul');
+    var speed = 2;//初始化速度
 
+    oUl.innerHTML += oUl.innerHTML;//图片内容*2-----参考图（2）
+    var oLi= document.getElementById('ul').getElementsByTagName('li');
+    oUl.style.width = oLi.length*300+'px';//设置ul的宽度使图片可以放下
+
+    // var oBtn1 = document.getElementById('btn1');
+    // var oBtn2 = document.getElementById('btn2');
+
+
+    function move(){
+      if(oUl.offsetLeft<-(oUl.offsetWidth/2)){//向左滚动，当靠左的图4移出边框时
+        oUl.style.left = 0;
+      }
+
+      if(oUl.offsetLeft > 0){//向右滚动，当靠右的图1移出边框时
+        oUl.style.left = -(oUl.offsetWidth/2)+'px';
+      }
+
+      oUl.style.left = oUl.offsetLeft + speed + 'px';
+    }
+
+    // oBtn1.addEventListener('click',function(){
+    //   speed = -2;
+    // },false);
+    // oBtn2.addEventListener('click',function(){
+    //   speed = 2;
+    //},false);
+
+     timer = setInterval(move,30);//全局变量 ，保存返回的定时器
+
+    oDiv.addEventListener('mouseout', function () {
+      var timer = setInterval(move,30);
+    },false);
+    oDiv.addEventListener('mousemove', function () {
+      clearInterval(timer);//鼠标移入清除定时器
+    },false);
+  })
 </script>
 
 <style scoped>
+  #box{
+    position: relative;
+    overflow: hidden;
+    height: 150px;
+  }
+  #box ul{
+    width: 1200px;
+    height: 100%;
+    position: absolute;
+  left: 0;
+  top: 0;
+    overflow: hidden;
+  }
+  #ul li{
+    width: 300px;
+    height:150px;
+    float: left;
+    list-style: none;
+  }
+  /*#box ul li img{*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+    /*vertical-align: top;*/
+  /*}*/
   .pull-right{
    list-style: none;
    margin-right: 2px;
@@ -299,6 +361,17 @@
   }
   #play:hover{
     transform: scale(1.4);
+  }
+  .list-group-item:hover{
+    -webkit-animation: myItem 2s;
+  }
+  @-webkit-keyframes myItem {
+     from{
+     } to{
+              background-color: #449d44;
+              background-size: 100%;
+    border-radius: 5px;
+            }
   }
   #play1{
     cursor: pointer;
@@ -407,13 +480,9 @@
     /*padding: 10px 10px;*/
     /*color: #f8f8f8;*/
   /*}*/
-  #zhishi{
-    line-height: 35px;
-    font-size: 18px;
-  }
   #guandian a{
     line-height: 35px;
-    font-size: 18px;
+    /*font-size: 18px;*/
     margin-top: 20px;
     color: black;
   }
